@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build single cpp file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "-g",
+                "-O0",
+                "-std=c++17",
+                "-Wall"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build single cpp file (release)",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "-O2",
+                "-std=c++17",
+                "-Wall"
+            ],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "clean current executable files under current directory",
+            "type": "shell",
+            "command": "find ${fileDirname} -maxdepth 1 -type f \\( -name '*.exe' -o -name '*.out' \\) -delete",
+            "problemMatcher": []
+        }
+    ]
+}
